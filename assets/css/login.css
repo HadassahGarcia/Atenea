@@ -1,0 +1,165 @@
+/* Variables para colores (basados en tu paleta) */
+:root {
+    --color-dark-brown: #896C6C; /* Texto oscuro, borde, logo (Tu #896C6C) */
+    --color-light-pink: #E5BEB5; /* Fondo del formulario (Tu #E5BEB5) */
+    --color-cream: #EEE6CA; /* Fondo principal y campos de texto (Tu #EEE6CA) */
+    --color-off-white: #FCFFF2; /* Alternativa de fondo muy claro (Tu #FCFFF2) */
+
+    /* Tipografías */
+    --font-koho: 'KoHo', sans-serif;
+    --font-kokoro-fallback: 'Poppins', sans-serif; /* Reemplaza 'Poppins' por 'Kokoro' si la tienes cargada */
+}
+
+/* Estilos generales y del cuerpo */
+body {
+    font-family: var(--font-kokoro-fallback);
+    background-color: #FCFFF2; /* Fondo de la ventana */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    background-color: #FCFFF2;
+    overflow: hidden; /* Para contener la forma diagonal */
+}
+
+/* --- Lado del Formulario (Izquierdo) --- */
+.login-form-side {
+    width: 50%;
+    background-color: var(--color-light-pink);
+    padding: 60px;
+    box-sizing: border-box;
+    color: var(--color-dark-brown);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Efecto de "flecha" en el borde derecho */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    z-index: 1; 
+}
+
+.welcome-title {
+    font-family: var(--font-koho); 
+    font-size: 4rem;
+    font-weight: 600; 
+    margin: 0 0 0px 0;
+    color: var(--color-dark-brown); 
+}
+
+.subtitle {
+    font-family: var(--font-kokoro-fallback);
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    font-weight: 400;
+    color: var(--color-dark-brown);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%; 
+}
+
+.login-form label {
+    font-family: var(--font-kokoro-fallback);
+    font-size: 1rem;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    color: var(--color-dark-brown);
+}
+
+.login-form input {
+    background-color: var(--color-cream);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    height: 15px; 
+    outline: none;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.login-button {
+    
+    background-color: #FCFFF2; 
+    color: var(--color-dark-brown);
+    border: none;
+    border-radius: 5px; /* Menos redondeado que el ejemplo anterior */
+    padding: 10px 40px;
+    font-family: var(--font-kokoro-fallback);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 45px;
+    align-self: flex-start; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #E5BEB5;
+}
+
+.register-link {
+    font-family: var(--font-kokoro-fallback);
+    font-size: 0.85rem;
+    color: var(--color-dark-brown);
+    margin-top: 40px;
+}
+
+.register-link a {
+    color: var(--color-dark-brown);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-dark-brown);
+    padding-bottom: 1px;
+}
+
+/* --- Lado del Logo (Derecho) --- */
+.logo-side {
+    width: 50%;
+    background-color: #FCFFF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px; /* Ajuste para compensar el corte */
+}
+
+.logo-content {
+    text-align: center;
+    color: var(--color-dark-brown);
+}
+
+.atenea-logo {
+    width: 800px; 
+    height: 800px; 
+    margin: 0 auto 5px;
+    background-image: url('../img/logo2.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.brand-name {
+    font-family: var(--font-kokoro-fallback);
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.brand-slogan {
+    font-family: var(--font-kokoro-fallback);
+    font-size: 0.9rem;
+    margin-top: 0px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
