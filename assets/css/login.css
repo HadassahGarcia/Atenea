@@ -1,19 +1,19 @@
-/* Variables para colores (basados en tu paleta) */
+
 :root {
-    --color-dark-brown: #896C6C; /* Texto oscuro, borde, logo (Tu #896C6C) */
-    --color-light-pink: #E5BEB5; /* Fondo del formulario (Tu #E5BEB5) */
-    --color-cream: #EEE6CA; /* Fondo principal y campos de texto (Tu #EEE6CA) */
-    --color-off-white: #FCFFF2; /* Alternativa de fondo muy claro (Tu #FCFFF2) */
+    --color-dark-brown: #896C6C; 
+    --color-light-pink: #E5BEB5; 
+    --color-cream: #EEE6CA; 
+    --color-off-white: #FCFFF2; 
 
     /* Tipografías */
     --font-koho: 'KoHo', sans-serif;
-    --font-kokoro-fallback: 'Poppins', sans-serif; /* Reemplaza 'Poppins' por 'Kokoro' si la tienes cargada */
+    --font-kokoro-fallback: 'Poppins', sans-serif; 
 }
 
 /* Estilos generales y del cuerpo */
 body {
     font-family: var(--font-kokoro-fallback);
-    background-color: #FCFFF2; /* Fondo de la ventana */
+    background-color: #FCFFF2; 
     margin: 0;
     display: flex;
     justify-content: center;
@@ -28,23 +28,24 @@ body {
     height: 600px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
     background-color: #FCFFF2;
-    overflow: hidden; /* Para contener la forma diagonal */
+    overflow: hidden; 
 }
 
 /* --- Lado del Formulario (Izquierdo) --- */
 .login-form-side {
-    width: 50%;
-    background-color: var(--color-light-pink);
-    padding: 60px;
-    box-sizing: border-box;
-    color: var(--color-dark-brown);
+    width: 100%;
+    height: 100%;
+    background: #e3b8b3; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Efecto de "flecha" en el borde derecho */
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-    z-index: 1; 
+    padding: 50px;
+
+    /* La forma diagonal */
+    clip-path: polygon(0 0, 75% 0, 85% 50%, 75% 100%, 0 100%);
 }
+
+
 
 .welcome-title {
     font-family: var(--font-koho); 
@@ -92,7 +93,7 @@ body {
     background-color: #FCFFF2; 
     color: var(--color-dark-brown);
     border: none;
-    border-radius: 5px; /* Menos redondeado que el ejemplo anterior */
+    border-radius: 5px;
     padding: 10px 40px;
     font-family: var(--font-kokoro-fallback);
     font-size: 1.2rem;
@@ -130,7 +131,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 10px; /* Ajuste para compensar el corte */
+    padding-left: 10px; 
 }
 
 .logo-content {
