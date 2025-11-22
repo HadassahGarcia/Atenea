@@ -57,5 +57,4 @@ switch ($metodo){
     http_response_code(404); // No se encontro el metodo
     echo json_encode(["error" => "Metodo incorrecto❌, ingrese GET o POST por favor"]);
 }
-
-
+?>

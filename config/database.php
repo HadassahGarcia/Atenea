@@ -19,3 +19,4 @@ try{
 } catch (\PDOexception $e) {
     trhow new \PDOexception($e->getMessage(), (int)$e->getCode());
 }
+?>
