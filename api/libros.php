@@ -27,8 +27,35 @@ switch ($metodo){
         //Devolver archivo en formato json
         echo json_encode($resultado);
     }catch (Exception $e){
-        http_responnse_code(500);
-        echo json_encode(["error" => "Error al consultar: " . $e->getMessage()]);
+        http_responnse_code(500);// Enviar error al cliente
+        echo json_encode(["error" => "Error al consultar: " . $e->getMessage()]);// error enviado en formato json
     }
     break;
+    case 'POST';
+    // Crear un libro o agregar un nuevo libro
+    $datos = json_decode(file_get_contents("php://input"), true)
+
+    if(!isset($datos['titulo']) && !empty($datos['autor'])){
+        try{
+            $sql = "INSERT INTO libros (titulo, autor, isbn, cantidad) VALUES (?, ?, ?, ?)"
+            $stmt = $pdo-> prepare($sql);
+            $stmt-> execute([datos['titulo'],$datos['autor'],$datos['isbn'] ?? 'N/A', $datos['cantidad'] ?? 1]);
+
+            http_response_code(201); //Alerta de que el libro fue creado
+            echo json_encode(["status" => "Libro creado con exito⭐"]); // Respuesta enviada en formato json
+        }catch (Exception $e){
+            http_response_code(500);
+            echo json_encode(["error" => "hubo un error al crear el libro❌:" . $e-> getMessage()]); // Respuesta del fallo en formato json
+        }
+    } else{
+        http_response_code(400); // No se pudo crear el libro
+        echo json_encode(["error" => "No se pudo crear el libro❌"]);
+    }
+    break;
+
+    default:
+    http_response_code(404); // No se encontro el metodo
+    echo json_encode(["error" => "Metodo incorrecto❌, ingrese GET o POST por favor"]);
 }
+
+
