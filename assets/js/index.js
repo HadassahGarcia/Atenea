@@ -19,3 +19,6 @@ document.querySelectorAll(".modal").forEach(modal => {
     if (e.target === modal) modal.classList.remove("active");
   });
 });
+
+
+

@@ -31,47 +31,34 @@
   <div class="main-content">
     
     <!-- TABLA -->
-    <div class="table-container">
-      <div class="section-title">Catálogo de libros</div>
-
-      <table>
-        <thead>
-          <tr>
+  <table id="tablaLibros" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
             <th>Título</th>
-            <th>Estado</th>
-            <th>Físico/Digital</th>
-          </tr>
-        </thead>
+            <th>Autor</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
-        <tbody>
-          <tr>
-            <td>📘 Lorem ipsum dolor sit amet consectetur</td>
-            <td>Prestado</td>
-            <td>Ambos</td>
-          </tr>
-          <tr>
-            <td>📘 Lorem ipsum dolor sit amet consectetur</td>
-            <td>Prestado</td>
-            <td>Digital</td>
-          </tr>
-          <tr>
-            <td>📘 Lorem ipsum dolor sit amet consectetur</td>
-            <td>Disponible</td>
-            <td>Físico</td>
-          </tr>
-          <tr>
-            <td>📘 Lorem ipsum dolor sit amet consectetur</td>
-            <td>Disponible</td>
-            <td>Ambos</td>
-          </tr>
-          <tr>
-            <td>📘 Lorem ipsum dolor sit amet consectetur</td>
-            <td>Prestado</td>
-            <td>Ambos</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<script>
+fetch("http://localhost:8888/tu_carpeta/api/get_libros.php")
+    .then(res => res.json())
+    .then(libros => {
+        let tbody = document.querySelector("#tablaLibros tbody");
+        libros.forEach(libro => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${libro.id}</td>
+                <td>${libro.titulo}</td>
+                <td>${libro.autor}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    });
+</script>
+
 
     <!-- BOTONES LATERALES -->
 
@@ -132,4 +119,5 @@
 
 </body>
 </html>
+
 
