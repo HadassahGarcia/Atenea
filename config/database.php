@@ -1,12 +1,13 @@
 <?php
 
-$host = 'localhost:8888';
+$host = 'localhost';
 $db = 'biblioteca_db';
 $user = 'root';
 $pass = 'root';
 $charset = 'utf8';
+$port = '8889';
 
-$dsn = "mysql:host=$host;dbname=$db;port=8888;charset=$charset";
+$dsn = "mysql:host=$host;dbname=$db;port=$port;charset=$charset";
 
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // da con exactitud el error

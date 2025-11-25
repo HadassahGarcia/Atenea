@@ -1,4 +1,10 @@
 <?php
+// buscar error
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+//
+
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
@@ -9,7 +15,7 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 switch ($metodo) {
     case 'GET':
-        $sql = "SELECT p.id, u.nombre, AS usuario, l.titulo AS libro, p.fecha_prestamo,
+        $sql = "SELECT p.id, u.nombre AS usuario, l.titulo AS libro, p.fecha_prestamo,
                 p.fecha_devolucion_estimada AS fecha_devolucion, p.estado AS Estado
                 FROM prestamos p
                 JOIN usuarios u ON p.usuario_id = u.id # unir tablas usuariss con prestamos

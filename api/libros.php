@@ -1,11 +1,17 @@
 <?php
+// buscar error
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+//
+
 // Obtener los datos de la base de datos
 header("content-type: application/json; charset=UTF-8"); // Tipo de contenido
 header("Access-Control-Allow-Origin:* ");// Permitir acceso
 header("Access-Control-Allow-Methods: GET, POST, DELETE");// Permitir metodos para modificar
 
 // Mandar la peticion a la base de datos
-require_once '/config/database.php';
+require_once '../config/database.php';
 
 //Buscar el metodo HTTP que se solicita
 $metodo = $_SERVER['REQUEST_METHOD'];
@@ -27,17 +33,17 @@ switch ($metodo){
         //Devolver archivo en formato json
         echo json_encode($resultado);
     }catch (Exception $e){
-        http_responnse_code(500);// Enviar error al cliente
+        http_response_code(500);// Enviar error al cliente
         echo json_encode(["error" => "Error al consultar: " . $e->getMessage()]);// error enviado en formato json
     }
     break;
-    case 'POST';
+    case 'POST':
     // Crear un libro o agregar un nuevo libro
-    $datos = json_decode(file_get_contents("php://input"), true)
+    $datos = json_decode(file_get_contents("php://input"), true);
 
     if(!isset($datos['titulo']) && !empty($datos['autor'])){
         try{
-            $sql = "INSERT INTO libros (titulo, autor, isbn, cantidad) VALUES (?, ?, ?, ?)"
+            $sql = "INSERT INTO libros (titulo, autor, isbn, cantidad) VALUES (?, ?, ?, ?)";
             $stmt = $pdo-> prepare($sql);
             $stmt-> execute([datos['titulo'],$datos['autor'],$datos['isbn'] ?? 'N/A', $datos['cantidad'] ?? 1]);
 
