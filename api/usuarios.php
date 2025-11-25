@@ -1,9 +1,15 @@
 <?php
+//buscar error
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+//
+
 header("content-type: application/json; charset=UTF-8"); // Tipo de contenido
 header("Access-Control-Allow-Origin:* ");// Permitir acceso
 header("Access-Control-Allow-Methods: GET, POST, DELETE");// Permitir metodos para modificar
 
-require_once '/config/database.php';
+require_once '../config/database.php';
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
