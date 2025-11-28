@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Base de datos: `biblioteca_db`
 --
 
+CREATE DATABASE IF NOT EXISTS `biblioteca_db`;
+
+USE `biblioteca_db`;
+
 -- --------------------------------------------------------
 
 --
@@ -35,17 +39,18 @@ CREATE TABLE `libros` (
   `cantidad` int(11) DEFAULT '1',
   `disponibles` int(11) DEFAULT '1',
   `imagen_url` varchar(255) DEFAULT NULL,
-  `fecha_ingreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `fecha_ingreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `estado` enum('fisico', 'digital', 'ambos') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id`, `titulo`, `autor`, `isbn`, `cantidad`, `disponibles`, `imagen_url`, `fecha_ingreso`) VALUES
-(1, 'Cien años de soledad', 'Gabriel García Márquez', '978-0307474728', 5, 5, NULL, '2025-11-21 20:16:43'),
-(2, 'El Principito', 'Antoine de Saint-Exupéry', '978-0156012195', 3, 2, NULL, '2025-11-21 20:16:43'),
-(3, 'Clean Code', 'Robert C. Martin', '978-0132350884', 2, 1, NULL, '2025-11-21 20:16:43');
+INSERT INTO `libros` (`id`, `titulo`, `autor`, `isbn`, `cantidad`, `disponibles`, `imagen_url`, `fecha_ingreso`, `estado`) VALUES
+(1, 'Cien años de soledad', 'Gabriel García Márquez', '978-0307474728', 5, 5, NULL, '2025-11-21 20:16:43', 'fisico'),
+(2, 'El Principito', 'Antoine de Saint-Exupéry', '978-0156012195', 3, 2, NULL, '2025-11-21 20:16:43', 'ambos'),
+(3, 'Clean Code', 'Robert C. Martin', '978-0132350884', 2, 1, NULL, '2025-11-21 20:16:43', 'digital');
 
 -- --------------------------------------------------------
 

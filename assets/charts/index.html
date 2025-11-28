@@ -37,13 +37,14 @@
             <th>ID</th>
             <th>Título</th>
             <th>Autor</th>
+            <th>Estado</th>
         </tr>
     </thead>
     <tbody></tbody>
 </table>
 
 <script>
-fetch("http://localhost:8888/tu_carpeta/api/get_libros.php")
+fetch("http://localhost:8888/api/libros.php")
     .then(res => res.json())
     .then(libros => {
         let tbody = document.querySelector("#tablaLibros tbody");
@@ -53,6 +54,7 @@ fetch("http://localhost:8888/tu_carpeta/api/get_libros.php")
                 <td>${libro.id}</td>
                 <td>${libro.titulo}</td>
                 <td>${libro.autor}</td>
+                <td>${libro.estado}</td>  
             `;
             tbody.appendChild(tr);
         });
