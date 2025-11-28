@@ -1,0 +1,248 @@
+/* ===== PALETA =====
+#896C6C (principal)
+#FCFFF2 (fondo)
+#E5A091 (botones)
+#EEE6CA (suave)
+*/
+
+/* ---------- ESTILOS GENERALES ---------- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FCFFF2; /* Fondo general */
+  color: #4b3b3b;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background-color: #896C6C; /* Color principal */
+  color: white;
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 38px;
+  letter-spacing: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- MENÚ SUPERIOR ---------- */
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+nav button {
+  background-color: #E5A091; /* Botones menú */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+nav button:hover {
+  background-color: #d08778; /* Hover más oscuro */
+}
+
+/* ---------- BUSCADOR ---------- */
+.search-bar {
+  background-color: #EEE6CA; /* Fondo suave */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 240px;
+  outline: none;
+}
+
+/* ---------- CONTENIDO PRINCIPAL ---------- */
+.main-content {
+  display: flex;
+  padding: 40px;
+  gap: 50px;
+}
+
+/* ---------- TABLA ---------- */
+.table-container {
+  flex: 1;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  background-color: #EEE6CA; /* Encabezado */
+  font-size: 16px;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- BOTONES LATERALES ---------- */
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar button {
+  background-color: #E5A091; /* Botones laterales */
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.sidebar button:hover {
+  background-color: #d08778;
+}
+
+
+body {
+  background-color: #FCFFF2;
+  font-family: Arial;
+}
+
+/* -------- SIDEBAR -------- */
+.sidebar {
+  width: 250px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar button {
+  background-color: #E5A091;
+  color: white;
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #cd8577;
+  transform: scale(1.03);
+}
+
+/* -------- MODALES -------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+/* Activo */
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Caja del modal */
+.modal-content {
+  background-color: #EEE6CA;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: pop .35s ease;
+}
+
+/* Animación modal */
+@keyframes pop {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin: 0;
+  color: #896C6C;
+}
+
+.modal-content input {
+  padding: 12px;
+  border: 2px solid #cfcbc1;
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Botón principal */
+.primary {
+  background-color: #E5A091;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  transition: .3s ease;
+}
+
+.primary:hover {
+  background-color: #cd8577;
+}
+
+/* Botón de cerrar */
+.close {
+  background-color: #896C6C;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  transition: .3s ease;
+}
+
+.close:hover {
+  background-color: #6e5454;
+}
+
+/* Botón peligro */
+.danger {
+  background-color: #c96363 !important;
+}
+
+.danger:hover {
+  background-color: #a94a4a !important;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Atenea - Catálogo de Libros</title>
+
+  <!-- Vincular el CSS externo -->
+  <link rel="stylesheet" href="../../assets/css/index.css"> 
+</head>
+
+<body>
+
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <div class="logo">
+      ATENEA 📖
+    </div>
+
+    <nav>
+      <button>Libros</button>
+      <button>Autores</button>
+      <button>Préstamos</button>
+      <button>Devoluciones</button>
+      <button>Usuarios</button>
+    </nav>
+
+    <input type="text" placeholder="Buscar..." class="search-bar">
+  </header>
+
+  <!-- ---------- CONTENIDO PRINCIPAL ---------- -->
+  <div class="main-content">
+    
+    <!-- TABLA -->
+  <table id="tablaLibros" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+fetch("http://localhost:8888/api/libros.php")
+    .then(res => res.json())
+    .then(libros => {
+        let tbody = document.querySelector("#tablaLibros tbody");
+        libros.forEach(libro => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${libro.id}</td>
+                <td>${libro.titulo}</td>
+                <td>${libro.autor}</td>
+                <td>${libro.estado}</td>  
+            `;
+            tbody.appendChild(tr);
+        });
+    });
+</script>
+
+
+    <!-- BOTONES LATERALES -->
+
+    <div class="sidebar">
+    <button data-modal="modalEditar">Editar Libro</button>
+    <button data-modal="modalAñadir">Añadir Libro</button>
+    <button data-modal="modalEliminar">Eliminar Libro</button>
+    <button data-modal="modalUsuarios">Gestión de Usuarios</button>
+  </div>
+
+  <!-- ----------- MODALES ----------- -->
+
+  <!-- Modal Editar -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-content">
+      <h2>Editar Libro</h2>
+      <input type="text" placeholder="Nuevo título">
+      <input type="text" placeholder="Autor">
+      <button class="primary">Guardar Cambios</button>
+      <button class="close">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal Añadir -->
+  <div id="modalAñadir" class="modal">
+    <div class="modal-content">
+      <h2>Añadir Libro</h2>
+      <input type="text" placeholder="Título">
+      <input type="text" placeholder="Autor">
+      <button class="primary">Agregar Libro</button>
+      <button class="close">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal Eliminar -->
+  <div id="modalEliminar" class="modal">
+    <div class="modal-content">
+      <h2>Eliminar Libro</h2>
+      <input type="text" placeholder="ID del libro">
+      <button class="primary danger">Eliminar</button>
+      <button class="close">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal Gestión Usuarios -->
+  <div id="modalUsuarios" class="modal">
+    <div class="modal-content">
+      <h2>Gestión de Usuarios</h2>
+      <input type="text" placeholder="Nombre del usuario">
+      <button class="primary">Buscar</button>
+      <button class="close">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="../../assets/js/index.js"></script>
+
+  </div>
+
+</body>
+</html>
+
+
