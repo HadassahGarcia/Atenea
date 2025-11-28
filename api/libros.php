@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 // Obtener los datos de la base de datos
 header("content-type: application/json; charset=UTF-8"); // Tipo de contenido
 header("Access-Control-Allow-Origin:* ");// Permitir acceso
-header("Access-Control-Allow-Methods: GET, POST, DELETE");// Permitir metodos para modificar
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");// Permitir metodos para modificar
 
 // Mandar la peticion a la base de datos
 require_once '../config/database.php';
