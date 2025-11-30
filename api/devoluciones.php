@@ -37,39 +37,3 @@ switch ($metodo) {
             echo json_encode($stmt->fetchAll());
         }
         break;
-
-    case 'POST':
-        $datos = json_decode(file_get_contents("php://input"), true);
-
-        if(!empty($datos['prestamo_id'])){
-            try{
-                $sql = "UPDATE prestamos SET estado = 'devuelto', fecha_devolucion_real = CURDATE() WHERE id = ?";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$datos['prestamo_id']]);
-
-                $sqlLibro = "SELECT libro_id FROM prestamos WHERE id = ?";
-                $stmtLibro = $pdo->prepare($sqlLibro);
-                $stmtLibro->execute([$datos['prestamo_id']]);
-                $prestamo = $stmtLibro->fetch();
-
-                if($prestamo){
-                    $sqlUpdate = "UPDATE libros SET disponibles = disponibles + 1 WHERE id = ?";
-                    $stmtUpdate = $pdo->prepare($sqlUpdate);
-                    $stmtUpdate->execute([$prestamo['libro_id']]);
-                }
-
-                http_response_code(200);
-                echo json_encode(["status" => "Devolucion realizada"]);
-            } catch (Exception $e){
-                http_response_code(500);
-                echo json_encode(["error" => "Error al registrar la devolucion: " . $e->getMessage()]);
-            }
-        }else {
-            http_response_code(400);
-            echo json_encode(["error" => "Falta informacion de devolucion"]);
-        }
-        break;
-}
-
-?>
-
