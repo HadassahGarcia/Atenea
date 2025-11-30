@@ -1,0 +1,394 @@
+/* ===== PALETA =====
+#896C6C (principal)
+#FCFFF2 (fondo)
+#E5A091 (botones)
+#EEE6CA (suave)
+*/
+
+/* ---------- ESTILOS GENERALES ---------- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #FCFFF2; /* Fondo general */
+  color: #4b3b3b;
+  line-height: 1.6;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background-color: #896C6C; /* Color principal */
+  color: white;
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 38px;
+  letter-spacing: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------- MENÚ SUPERIOR ---------- */
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+nav button {
+  background-color: #E5A091; /* Botones menú */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+nav button:hover {
+  background-color: #d08778;
+}
+
+nav button.active {
+  background-color: #cd8577;
+  font-weight: 600;
+}
+
+/* ---------- BUSCADOR ---------- */
+.search-bar {
+  background-color: #EEE6CA; /* Fondo suave */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 240px;
+  outline: none;
+}
+
+/* ---------- CONTENIDO PRINCIPAL ---------- */
+.main-content {
+  display: flex;
+  padding: 40px;
+  gap: 50px;
+}
+
+/* ---------- TABLA ---------- */
+.table-container {
+  flex: 1;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(137, 108, 108, 0.1);
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 25px 0;
+  color: #896C6C;
+  letter-spacing: 0.5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #EEE6CA 0%, #e0d8b5 100%);
+}
+
+th {
+  text-align: left;
+  padding: 18px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #896C6C;
+  border-bottom: 2px solid #d8cfb0;
+}
+
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #FCFFF2;
+  transform: translateX(2px);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Células específicas */
+.id-cell {
+  font-weight: 600;
+  color: #896C6C;
+  font-size: 14px;
+}
+
+.title-cell {
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+.author-cell {
+  color: #666;
+  font-style: italic;
+}
+
+/* Badges de estado */
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.status-available {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-borrowed {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+/* Botones de acción */
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.action-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.edit-btn:hover {
+  background-color: #E5A091;
+}
+
+.delete-btn:hover {
+  background-color: #ffcccb;
+}
+
+/* Mensaje de error */
+.error-message {
+  text-align: center;
+  color: #c96363;
+  font-weight: 500;
+  padding: 30px;
+}
+
+/* ---------- BOTONES LATERALES ---------- */
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar button {
+  background-color: #E5A091; /* Botones laterales */
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.sidebar button:hover {
+  background-color: #d08778;
+}
+
+
+/* -------- SIDEBAR -------- */
+.sidebar {
+  width: 250px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar button {
+  background-color: #E5A091;
+  color: white;
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #cd8577;
+  transform: scale(1.03);
+}
+
+/* -------- MODALES -------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+/* Activo */
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Caja del modal */
+.modal-content {
+  background-color: #EEE6CA;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: pop .35s ease;
+}
+
+/* Animación modal */
+@keyframes pop {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin: 0;
+  color: #896C6C;
+}
+
+.modal-content input {
+  padding: 12px;
+  border: 2px solid #cfcbc1;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.modal-content input:focus {
+  border-color: #E5A091;
+}
+
+.modal-content select {
+  padding: 12px;
+  border: 2px solid #cfcbc1;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.modal-content select:focus {
+  border-color: #E5A091;
+}
+
+.modal-content p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+}
+
+/* Botón principal */
+.primary {
+  background-color: #E5A091;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  transition: .3s ease;
+}
+
+.primary:hover {
+  background-color: #cd8577;
+}
+
+/* Botón de cerrar */
+.close {
+  background-color: #896C6C;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  transition: .3s ease;
+}
+
+.close:hover {
+  background-color: #6e5454;
+}
+
+/* Botón peligro */
+.danger {
+  background-color: #c96363 !important;
+}
+
+.danger:hover {
+  background-color: #a94a4a !important;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.modal-content label {
+  font-weight: 500;
+  color: #896C6C;
+  margin-bottom: 5px;
+  display: block;
+}
