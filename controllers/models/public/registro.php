@@ -30,7 +30,6 @@ if (isset($_POST['registrar'])) {
     }
 
 } else {
-    // redirige al registro para que pueda iniciar sesion, pero en cuanto pongan index redirigira a eso 
     header("Location: /Atenea/assets/charts/registro.html");
     exit();
 }
