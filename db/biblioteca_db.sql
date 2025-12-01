@@ -78,6 +78,28 @@ INSERT INTO `prestamos` (`id`, `usuario_id`, `libro_id`, `fecha_prestamo`, `fech
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `autores`
+--
+
+CREATE TABLE `autores` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(150) NOT NULL,
+  `nacionalidad` varchar(100) DEFAULT NULL,
+  `fecha_nacimiento` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `autores`
+--
+
+INSERT INTO `autores` (`id`, `nombre`, `nacionalidad`, `fecha_nacimiento`) VALUES
+(1, 'Gabriel García Márquez', 'Colombiano', '1927-03-06'),
+(2, 'Antoine de Saint-Exupéry', 'Francés', '1900-06-29'),
+(3, 'Robert C. Martin', 'Estadounidense', '1952-12-05');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -117,6 +139,12 @@ ALTER TABLE `prestamos`
   ADD KEY `libro_id` (`libro_id`);
 
 --
+-- Indices de la tabla `autores`
+--
+ALTER TABLE `autores`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -138,6 +166,12 @@ ALTER TABLE `libros`
 --
 ALTER TABLE `prestamos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `autores`
+--
+ALTER TABLE `autores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
