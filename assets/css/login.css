@@ -7,6 +7,7 @@
     --font-poppins: 'Poppins', sans-serif;
 }
 
+/* Estilos generales y del cuerpo */
 body {
     font-family: var(--font-poppins);
     background-color: var(--color-off-white);
@@ -17,6 +18,7 @@ body {
     min-height: 100vh;
 }
 
+/* Contenedor principal del login */
 .login-container {
     display: flex;
     width: 900px;
@@ -24,25 +26,26 @@ body {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
     background-color: var(--color-off-white);
     overflow: hidden;
+    border-radius: 10px;
 }
 
-/* Lado del formulario con forma diagonal */
+/* --- Lado del Formulario (Izquierdo) --- */
 .login-form-side {
-    width: 60%;
+    width: 100%;
     height: 100%;
     background: var(--color-light-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px;
-    clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    padding: 50px;
+    clip-path: polygon(0 0, 75% 0, 85% 50%, 75% 100%, 0 100%);
 }
 
 .welcome-title {
     font-family: var(--font-koho);
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 600;
-    margin: 0 0 5px 0;
+    margin: 0 0 0px 0;
     color: var(--color-dark-brown);
 }
 
@@ -57,14 +60,14 @@ body {
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
 }
 
 .login-form label {
     font-family: var(--font-poppins);
     font-size: 1rem;
     margin-top: 25px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: var(--color-dark-brown);
     font-weight: 500;
 }
@@ -73,15 +76,17 @@ body {
     background-color: var(--color-cream);
     border: none;
     border-radius: 4px;
-    padding: 12px;
+    padding: 10px;
+    height: 15px;
     outline: none;
     font-size: 1rem;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
+    transition: all 0.3s ease;
 }
 
 .login-form input:focus {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
 }
 
 .login-button {
@@ -89,28 +94,28 @@ body {
     color: var(--color-dark-brown);
     border: none;
     border-radius: 5px;
-    padding: 12px 45px;
+    padding: 10px 40px;
     font-family: var(--font-poppins);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 45px;
     align-self: flex-start;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .login-button:hover {
     background-color: var(--color-cream);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .register-link {
     font-family: var(--font-poppins);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-dark-brown);
-    margin-top: 35px;
+    margin-top: 40px;
 }
 
 .register-link a {
@@ -119,21 +124,21 @@ body {
     font-weight: 600;
     border-bottom: 1px solid var(--color-dark-brown);
     padding-bottom: 1px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease;
 }
 
 .register-link a:hover {
     border-bottom-color: transparent;
 }
 
-/* Lado del logo */
+/* --- Lado del Logo (Derecho) --- */
 .logo-side {
-    width: 40%;
+    width: 50%;
     background-color: var(--color-off-white);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-left: 10px;
 }
 
 .logo-content {
@@ -142,29 +147,36 @@ body {
 }
 
 .atenea-logo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-    background-color: var(--color-dark-brown);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-off-white);
-    font-weight: bold;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto 5px;
+    background-image: url('../img/logo2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.brand-name {
-    font-family: var(--font-koho);
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin: 0 0 10px 0;
-}
-
-.brand-slogan {
-    font-family: var(--font-poppins);
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 300;
-    color: var(--color-dark-brown);
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+    }
+    
+    .login-form-side {
+        clip-path: none;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .logo-side {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .atenea-logo {
+        width: 300px;
+        height: 300px;
+    }
 }
