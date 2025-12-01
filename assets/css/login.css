@@ -1,166 +1,118 @@
-
-:root {
-    --color-dark-brown: #896C6C; 
-    --color-light-pink: #E5BEB5; 
-    --color-cream: #EEE6CA; 
-    --color-off-white: #FCFFF2; 
-
-    /* Tipografías */
-    --font-koho: 'KoHo', sans-serif;
-    --font-kokoro-fallback: 'Poppins', sans-serif; 
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilos generales y del cuerpo */
 body {
-    font-family: var(--font-kokoro-fallback);
-    background-color: #FCFFF2; 
-    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FCFFF2;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Contenedor principal del login */
+/* Contenedor principal */
 .login-container {
     display: flex;
-    width: 900px;
-    height: 600px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-    background-color: #FCFFF2;
-    overflow: hidden; 
+    width: 800px;
+    height: 500px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* --- Lado del Formulario (Izquierdo) --- */
-.login-form-side {
-    width: 100%;
-    height: 100%;
-    background: #e3b8b3; 
+/* Sección del formulario */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    background: #E5BEB5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
-
-    /* La forma diagonal */
-    clip-path: polygon(0 0, 75% 0, 85% 50%, 75% 100%, 0 100%);
 }
 
-
-
-.welcome-title {
-    font-family: var(--font-koho); 
-    font-size: 4rem;
-    font-weight: 600; 
-    margin: 0 0 0px 0;
-    color: var(--color-dark-brown); 
+.form-section h1 {
+    font-size: 2.5rem;
+    color: #896C6C;
+    margin-bottom: 5px;
 }
 
-.subtitle {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 1.2rem;
-    margin-bottom: 50px;
-    font-weight: 400;
-    color: var(--color-dark-brown);
+.form-section > p {
+    color: #896C6C;
+    margin-bottom: 30px;
 }
 
+/* Formulario */
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 70%; 
 }
 
-.login-form label {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 1rem;
-    margin-top: 25px;
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #896C6C;
     margin-bottom: 5px;
-    color: var(--color-dark-brown);
+    font-weight: 500;
 }
 
-.login-form input {
-    background-color: var(--color-cream);
+.form-group input {
+    width: 100%;
+    padding: 12px;
     border: none;
     border-radius: 4px;
-    padding: 10px;
-    height: 15px; 
-    outline: none;
+    background-color: #EEE6CA;
     font-size: 1rem;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-.login-button {
-    
-    background-color: #FCFFF2; 
-    color: var(--color-dark-brown);
+.login-btn {
+    background-color: #FCFFF2;
+    color: #896C6C;
     border: none;
-    border-radius: 5px;
-    padding: 10px 40px;
-    font-family: var(--font-kokoro-fallback);
-    font-size: 1.2rem;
-    font-weight: 500;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 45px;
-    align-self: flex-start; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-}
-
-.login-button:hover {
-    background-color: #E5BEB5;
+    margin-top: 10px;
+    width: fit-content;
 }
 
 .register-link {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 0.85rem;
-    color: var(--color-dark-brown);
-    margin-top: 40px;
+    margin-top: 20px;
+    color: #896C6C;
+    font-size: 0.9rem;
 }
 
 .register-link a {
-    color: var(--color-dark-brown);
+    color: #896C6C;
     text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid var(--color-dark-brown);
-    padding-bottom: 1px;
+    font-weight: bold;
 }
 
-/* --- Lado del Logo (Derecho) --- */
-.logo-side {
-    width: 50%;
+/* Sección del logo */
+.logo-section {
+    flex: 1;
     background-color: #FCFFF2;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 10px; 
 }
 
-.logo-content {
-    text-align: center;
-    color: var(--color-dark-brown);
-}
-
-.atenea-logo {
-    width: 800px; 
-    height: 800px; 
-    margin: 0 auto 5px;
-    background-image: url('../img/logo2.png'); 
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.brand-name {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-.brand-slogan {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 0.9rem;
-    margin-top: 0px;
-    font-weight: 300;
-    letter-spacing: 1px;
+.logo-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #896C6C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
 }
