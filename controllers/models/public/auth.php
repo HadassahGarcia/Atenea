@@ -1,7 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
-require_once '../../config/database.php';
+require_once '../../../config/database.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     // obtener datos de la peticion
@@ -10,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     //validmos que no esten vacios
     if(empty($email)||empty($password)){
-        header("Location: login.html?error=vacio");
+        header("Location: ../../../assets/charts/login.html?error=vacio");
         exit();
     }
 
@@ -29,16 +32,16 @@ try{
         header("Location: dashboard.php");
         exit();
     }else{
-        header("Location: login.html?error=credenciales");
+        header("Location: ../../../assets/charts/login.html?error=credenciales");
         exit();
     }
 
 } catch(Exception $e){
-    header("Location: login.html?error=servidor");
+    header("Location: ../../../assets/charts/login.html?error=servidor");
     exit();
 }
 }else{
-    header("Location: login.html");
+    header("Location: ../../../assets/charts/login.html");
     exit();
 }
 ?>

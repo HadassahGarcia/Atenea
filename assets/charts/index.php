@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: login.html");
+    exit();
+}
+
+// Verificar si el usuario es admin
+if($_SESSION['usuario_rol'] !== 'admin'){
+    header("Location: ../../controllers/models/public/dashboard.php");
+    exit();
+}
+
+$nombreUsuario = $_SESSION['usuario_nombre'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +37,11 @@
       <button onclick="cambiarPestana('usuarios')" class="tab-btn" data-tab="usuarios">Usuarios</button>
     </nav>
 
-    <input type="text" placeholder="Buscar..." class="search-bar" id="searchBar" onkeyup="buscar()">
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <input type="text" placeholder="Buscar..." class="search-bar" id="searchBar" onkeyup="buscar()">
+      <span style="color: white; font-weight: 500;">👤 <?php echo htmlspecialchars($nombreUsuario); ?></span>
+      <a href="../../controllers/models/public/logout.php" style="background: #e74c3c; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: 500;">Cerrar Sesión</a>
+    </div>
   </header>
 
   <div class="main-content">

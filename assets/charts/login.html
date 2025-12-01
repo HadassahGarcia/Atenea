@@ -16,12 +16,14 @@
             <h1 class="welcome-title">Bienvenido</h1>
             <p class="subtitle">a tu biblioteca digital</p>
 
-            <form class="login-form" method="POST" action="auth.php">
+            <div id="error-message" style="display: none; background: #e74c3c; color: white; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;"></div>
+
+            <form class="login-form" method="POST" action="../../controllers/models/public/auth.php">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="">
+                <input type="email" id="email" name="email" placeholder="" required>
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="">
+                <input type="password" id="password" name="password" placeholder="" required>
 
                 <button type="submit" class="login-button">Login</button>
             </form>
@@ -36,5 +38,31 @@
                 <div class="atenea-logo">
         </div>
     </div>
+
+    <script>
+        // Mostrar mensajes de error
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        const errorDiv = document.getElementById('error-message');
+        
+        if (error) {
+            let mensaje = '';
+            switch(error) {
+                case 'vacio':
+                    mensaje = '⚠️ Por favor completa todos los campos';
+                    break;
+                case 'credenciales':
+                    mensaje = '❌ Email o contraseña incorrectos';
+                    break;
+                case 'servidor':
+                    mensaje = '🔧 Error del servidor. Intenta más tarde';
+                    break;
+                default:
+                    mensaje = '❌ Error desconocido';
+            }
+            errorDiv.textContent = mensaje;
+            errorDiv.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
