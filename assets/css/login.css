@@ -1,118 +1,170 @@
-/* Reset y estilos base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --color-dark-brown: #896C6C; 
+    --color-light-pink: #E5BEB5; 
+    --color-cream: #EEE6CA; 
+    --color-off-white: #FCFFF2; 
+    --font-koho: 'KoHo', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #FCFFF2;
+    font-family: var(--font-poppins);
+    background-color: var(--color-off-white);
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Contenedor principal */
 .login-container {
     display: flex;
-    width: 800px;
-    height: 500px;
-    background: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-off-white);
     overflow: hidden;
 }
 
-/* Sección del formulario */
-.form-section {
-    flex: 1;
-    padding: 40px;
-    background: #E5BEB5;
+/* Lado del formulario con forma diagonal */
+.login-form-side {
+    width: 60%;
+    height: 100%;
+    background: var(--color-light-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 60px;
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
 }
 
-.form-section h1 {
-    font-size: 2.5rem;
-    color: #896C6C;
-    margin-bottom: 5px;
+.welcome-title {
+    font-family: var(--font-koho);
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: var(--color-dark-brown);
 }
 
-.form-section > p {
-    color: #896C6C;
-    margin-bottom: 30px;
+.subtitle {
+    font-family: var(--font-poppins);
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    font-weight: 400;
+    color: var(--color-dark-brown);
 }
 
-/* Formulario */
 .login-form {
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    color: #896C6C;
-    margin-bottom: 5px;
+.login-form label {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    color: var(--color-dark-brown);
     font-weight: 500;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 12px;
+.login-form input {
+    background-color: var(--color-cream);
     border: none;
     border-radius: 4px;
-    background-color: #EEE6CA;
+    padding: 12px;
+    outline: none;
     font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
 }
 
-.login-btn {
-    background-color: #FCFFF2;
-    color: #896C6C;
+.login-form input:focus {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.login-button {
+    background-color: var(--color-off-white);
+    color: var(--color-dark-brown);
     border: none;
-    padding: 12px 30px;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 12px 45px;
+    font-family: var(--font-poppins);
     font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
-    margin-top: 10px;
-    width: fit-content;
+    margin-top: 40px;
+    align-self: flex-start;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+}
+
+.login-button:hover {
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .register-link {
-    margin-top: 20px;
-    color: #896C6C;
+    font-family: var(--font-poppins);
     font-size: 0.9rem;
+    color: var(--color-dark-brown);
+    margin-top: 35px;
 }
 
 .register-link a {
-    color: #896C6C;
+    color: var(--color-dark-brown);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-dark-brown);
+    padding-bottom: 1px;
+    transition: border-color 0.3s;
 }
 
-/* Sección del logo */
-.logo-section {
-    flex: 1;
-    background-color: #FCFFF2;
+.register-link a:hover {
+    border-bottom-color: transparent;
+}
+
+/* Lado del logo */
+.logo-side {
+    width: 40%;
+    background-color: var(--color-off-white);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.logo-placeholder {
-    width: 200px;
-    height: 200px;
-    background-color: #896C6C;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logo-content {
+    text-align: center;
+    color: var(--color-dark-brown);
+}
+
+.atenea-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    background-color: var(--color-dark-brown);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-off-white);
     font-weight: bold;
+}
+
+.brand-name {
+    font-family: var(--font-koho);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.brand-slogan {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 300;
+    color: var(--color-dark-brown);
 }
