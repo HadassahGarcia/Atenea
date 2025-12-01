@@ -1,19 +1,16 @@
-
 :root {
     --color-dark-brown: #896C6C; 
     --color-light-pink: #E5BEB5; 
     --color-cream: #EEE6CA; 
     --color-off-white: #FCFFF2; 
-
-    /* Tipografías */
     --font-koho: 'KoHo', sans-serif;
-    --font-kokoro-fallback: 'Poppins', sans-serif; 
+    --font-poppins: 'Poppins', sans-serif;
 }
 
 /* Estilos generales y del cuerpo */
 body {
-    font-family: var(--font-kokoro-fallback);
-    background-color: #FCFFF2; 
+    font-family: var(--font-poppins);
+    background-color: var(--color-off-white);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -27,36 +24,33 @@ body {
     width: 900px;
     height: 600px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-    background-color: #FCFFF2;
-    overflow: hidden; 
+    background-color: var(--color-off-white);
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 /* --- Lado del Formulario (Izquierdo) --- */
 .login-form-side {
     width: 100%;
     height: 100%;
-    background: #e3b8b3; 
+    background: var(--color-light-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 50px;
-
-    /* La forma diagonal */
     clip-path: polygon(0 0, 75% 0, 85% 50%, 75% 100%, 0 100%);
 }
 
-
-
 .welcome-title {
-    font-family: var(--font-koho); 
+    font-family: var(--font-koho);
     font-size: 4rem;
-    font-weight: 600; 
+    font-weight: 600;
     margin: 0 0 0px 0;
-    color: var(--color-dark-brown); 
+    color: var(--color-dark-brown);
 }
 
 .subtitle {
-    font-family: var(--font-kokoro-fallback);
+    font-family: var(--font-poppins);
     font-size: 1.2rem;
     margin-bottom: 50px;
     font-weight: 400;
@@ -66,15 +60,16 @@ body {
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 70%; 
+    width: 70%;
 }
 
 .login-form label {
-    font-family: var(--font-kokoro-fallback);
+    font-family: var(--font-poppins);
     font-size: 1rem;
     margin-top: 25px;
     margin-bottom: 5px;
     color: var(--color-dark-brown);
+    font-weight: 500;
 }
 
 .login-form input {
@@ -82,35 +77,42 @@ body {
     border: none;
     border-radius: 4px;
     padding: 10px;
-    height: 15px; 
+    height: 15px;
     outline: none;
     font-size: 1rem;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
 }
 
 .login-button {
-    
-    background-color: #FCFFF2; 
+    background-color: var(--color-off-white);
     color: var(--color-dark-brown);
     border: none;
     border-radius: 5px;
     padding: 10px 40px;
-    font-family: var(--font-kokoro-fallback);
+    font-family: var(--font-poppins);
     font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
     margin-top: 45px;
-    align-self: flex-start; 
+    align-self: flex-start;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .login-button:hover {
-    background-color: #E5BEB5;
+    background-color: var(--color-cream);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .register-link {
-    font-family: var(--font-kokoro-fallback);
+    font-family: var(--font-poppins);
     font-size: 0.85rem;
     color: var(--color-dark-brown);
     margin-top: 40px;
@@ -122,16 +124,21 @@ body {
     font-weight: 600;
     border-bottom: 1px solid var(--color-dark-brown);
     padding-bottom: 1px;
+    transition: border-color 0.3s ease;
+}
+
+.register-link a:hover {
+    border-bottom-color: transparent;
 }
 
 /* --- Lado del Logo (Derecho) --- */
 .logo-side {
     width: 50%;
-    background-color: #FCFFF2;
+    background-color: var(--color-off-white);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 10px; 
+    padding-left: 10px;
 }
 
 .logo-content {
@@ -140,27 +147,36 @@ body {
 }
 
 .atenea-logo {
-    width: 800px; 
-    height: 800px; 
+    width: 800px;
+    height: 800px;
     margin: 0 auto 5px;
-    background-image: url('../img/logo2.png'); 
-    background-size: contain; 
+    background-image: url('../img/logo2.png');
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.brand-name {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-.brand-slogan {
-    font-family: var(--font-kokoro-fallback);
-    font-size: 0.9rem;
-    margin-top: 0px;
-    font-weight: 300;
-    letter-spacing: 1px;
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+    }
+    
+    .login-form-side {
+        clip-path: none;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .logo-side {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .atenea-logo {
+        width: 300px;
+        height: 300px;
+    }
 }
